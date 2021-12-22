@@ -7,10 +7,34 @@
 	<body>
 		<input id="text" type="text" style="width:80%" onkeydown="makeQrCode (event);" />
 
-		<div id="qrcode" style="width:100px; height:100px; margin-top:15px;"></div>
+		<div id="qrcode1" style="margin-top:15px;"></div>
+		<hr>
+		<div id="qrcode2" style="margin-top:15px;"></div>
+		<hr>
+		<div id="qrcode3" style="margin-top:15px;"></div>
 
 		<script type="text/javascript">
-			var qrcode = new QRCode(document.getElementById("qrcode"), {
+			// as simple
+			new QRCode(document.getElementById("qrcode1"), "www.google.com");
+		</script>
+
+
+		<script type="text/javascript">
+			// or with some options
+			var qrcode = new QRCode(document.getElementById("qrcode2"), {
+				text: "www.microsoft.com",
+				width: 128,
+				height: 128,
+				colorDark : "#000000",
+				colorLight : "#ffffff",
+				correctLevel : QRCode.CorrectLevel.H
+
+			});
+		</script>
+
+
+		<script type="text/javascript">
+			var qrcode = new QRCode(document.getElementById("qrcode3"), {
 				width : 100,
 				height : 100
 			});
