@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<script type="text/javascript" src="qrcode.js"></script>
+	</head>
+
+	<body>
+		<input id="text" type="text" style="width:80%" onkeydown="makeQrCode (event);" />
+
+		<div id="qrcode" style="width:100px; height:100px; margin-top:15px;"></div>
+
+		<script type="text/javascript">
+			var qrcode = new QRCode(document.getElementById("qrcode"), {
+				width : 100,
+				height : 100
+			});
+			//qrcode.makeCode(document.getElementById("text"));
+
+			function makeQrCode (event){
+				var txt = document.getElementById("text");
+
+				if (event.keyCode == 13) {
+					if (!txt.value) {
+						alert("Input a text");
+						txt.focus();
+						return;
+					}
+
+					qrcode.makeCode(txt.value);
+				}
+			}
+		</script>
+	</body>
+</html>
